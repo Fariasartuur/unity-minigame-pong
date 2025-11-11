@@ -3,7 +3,7 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "Movement",
+            "name": "Player",
             "id": "ae3fd2ef-9b9d-4118-802b-227eb6b2dd1b",
             "actions": [
                 {
@@ -18,11 +18,20 @@
                 {
                     "name": "MoveP2",
                     "type": "Value",
-                    "id": "ae09f5fb-ebd0-4637-9169-f1fdf2e30151",
+                    "id": "755ffca9-2b6f-4230-8515-d6a2bcbb3c07",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "49dd64e0-f32e-4ef5-871f-d1658ae5addc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -61,7 +70,7 @@
                 },
                 {
                     "name": "2D Vector",
-                    "id": "daa9fd68-d729-4714-9eb1-93e89615ca2f",
+                    "id": "b164babc-dc34-4c14-8585-a270f6bc9483",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -72,7 +81,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "39f23ad3-83e9-4e46-ada8-a958e5fd17a3",
+                    "id": "fe44772c-ecc4-4b5f-9c57-e0e66e6b7bd4",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
@@ -83,7 +92,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "b07de4d4-5a19-4b21-bb9f-478abb33a097",
+                    "id": "c7265484-ab95-46fe-ac3b-5fa5fff8350b",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
@@ -91,6 +100,17 @@
                     "action": "MoveP2",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c5e81099-e60a-4414-a757-0bd39752e4df",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

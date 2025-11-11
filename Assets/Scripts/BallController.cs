@@ -12,16 +12,26 @@ public class BallController : MonoBehaviour
     public float speed = 10f;
     private Vector2 direction;
     private Rigidbody2D rb;
+
+    public bool canMove = false;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spawnRenderer = spawn.GetComponent<SpriteRenderer>();
 
-        ballDirection();
+        resetBall();
     }
 
     void FixedUpdate()
     {
+
+        if (!canMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         rb.linearVelocity = direction * speed;
 
         if (rb.position.x < -12)
@@ -45,22 +55,36 @@ public class BallController : MonoBehaviour
         direction = Vector2.Reflect(direction, collision.GetContact(0).normal).normalized;
     }
 
-    private void resetBall()
+    public void resetBall()
     {
-        rb.position = Vector2.zero;
+        float randomY = UnityEngine.Random.Range(
+            spawnRenderer.bounds.min.y + 1f,
+            spawnRenderer.bounds.max.y - 1f
+        );
 
-        ballDirection();
+        rb.position = new Vector2(spawn.transform.position.x, randomY);
 
-    }
-
-    private void ballDirection()
-    {
-        rb.position = new Vector2(spawn.transform.position.x, UnityEngine.Random.Range(spawnRenderer.bounds.min.y - 0.5f, spawnRenderer.bounds.max.y - 0.5f));
         float x = UnityEngine.Random.value < 0.5f ? -1f : 1f;
-        float y = UnityEngine.Random.Range(-0.5f, 0.5f);
-        direction = new Vector2(x, y).normalized;
+        float y = 0f;
 
-        rb.linearVelocity = direction * speed;
+        while (Mathf.Abs(y) < 0.2f)
+        {
+            y = UnityEngine.Random.Range(-1f, 1f);
+        }
+
+        direction = new Vector2(x, y).normalized;
     }
+
+    public void StartBall()
+    {
+        canMove = true;
+    }
+
+    public void StopBall()
+    {
+        rb.linearVelocity = Vector2.zero;
+        canMove = false;
+    }
+
 
 }

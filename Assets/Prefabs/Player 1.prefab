@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7019039989030195575}
   - component: {fileID: 8288184893098793703}
-  - component: {fileID: 5023818880286552782}
   - component: {fileID: 680255893324117443}
   - component: {fileID: 1022790119290245789}
   - component: {fileID: 3674783174008241203}
+  - component: {fileID: 692366602861995257}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -94,36 +94,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5023818880286552782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3933874980748003022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: c44a99da0b5b6cc4bb1b95f45635bf97, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Movement
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!50 &680255893324117443
 Rigidbody2D:
   serializedVersion: 5
@@ -209,7 +179,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c42960545b355e43a0efe37e8091fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  InputActions: {fileID: 0}
+  menuObject: {fileID: 0}
   isPlayerOne: 1
   moveSpeed: 12
   minY: -4.8
   maxY: 3.8
+--- !u!114 &692366602861995257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3933874980748003022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: c44a99da0b5b6cc4bb1b95f45635bf97, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 00d0f02e-caf3-444b-8dd2-a40505bc136a
+    m_ActionName: 'Player/MoveP1[/Keyboard/w,/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 755ffca9-2b6f-4230-8515-d6a2bcbb3c07
+    m_ActionName: 'Player/MoveP2[/Keyboard/upArrow,/Keyboard/downArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 49dd64e0-f32e-4ef5-871f-d1658ae5addc
+    m_ActionName: 'Player/Menu[/Keyboard/space]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
